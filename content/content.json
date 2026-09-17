@@ -1,0 +1,219 @@
+{
+  "profile": {
+    "name": "[YOUR NAME]",
+    "tagline": "[one line: what you build]",
+    "location": "[CITY]",
+    "status": { "open": true, "label": "open to [roles / internships]" },
+    "replyNote": "I usually reply within [N] days.",
+    "portrait": "assets/ascii-portrait.txt",
+    "resumePdf": "assets/resume.pdf",
+    "siteUrl": "https://USERNAME.github.io/"
+  },
+  "links": [
+    { "id": "email", "label": "Email", "handle": "you@example.com", "href": "mailto:you@example.com", "icon": "mail", "copy": true, "value": "you@example.com" },
+    { "id": "github", "label": "GitHub", "handle": "@USERNAME", "href": "https://github.com/USERNAME", "icon": "code" },
+    { "id": "linkedin", "label": "LinkedIn", "handle": "in/USERNAME", "href": "https://www.linkedin.com/in/USERNAME", "icon": "person" }
+  ],
+  "projects": [
+    {
+      "id": "project-one",
+      "order": 1,
+      "title": "[PROJECT ONE]",
+      "year": 2026,
+      "type": "web app",
+      "featured": true,
+      "summary": "[one sentence: what it does and who it's for]",
+      "stack": ["[stack one]", "[stack two]", "[stack three]"],
+      "cover": "",
+      "images": [
+        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+      ],
+      "overview": { "problem": "[the problem]", "built": "[what I built]" },
+      "role": { "summary": "[my role]", "bullets": ["[bullet]", "[bullet]"] },
+      "results": ["[result with a number]", "[result with a number]"],
+      "links": { "source": "https://github.com/USERNAME/project-one", "live": "https://example.com" }
+    },
+    {
+      "id": "project-two",
+      "order": 2,
+      "title": "[PROJECT TWO]",
+      "year": 2025,
+      "type": "mobile app",
+      "featured": true,
+      "summary": "[one sentence: what it does and who it's for]",
+      "stack": ["[stack one]", "[stack two]"],
+      "cover": "",
+      "images": [
+        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+      ],
+      "overview": { "problem": "[the problem]", "built": "[what I built]" },
+      "role": { "summary": "[my role]", "bullets": ["[bullet]"] },
+      "results": ["[result with a number]"],
+      "links": { "source": "https://github.com/USERNAME/project-two" }
+    },
+    {
+      "id": "project-three",
+      "order": 3,
+      "title": "[PROJECT THREE]",
+      "year": 2025,
+      "type": "cli tool",
+      "featured": false,
+      "summary": "[one sentence: what it does and who it's for]",
+      "stack": ["[stack one]", "[stack two]", "[stack three]", "[stack four]", "[stack five]"],
+      "cover": "",
+      "images": [
+        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+      ],
+      "overview": { "problem": "[the problem]", "built": "[what I built]" },
+      "role": { "summary": "[my role]", "bullets": ["[bullet]"] },
+      "results": ["[result with a number]"],
+      "links": { "source": "https://github.com/USERNAME/project-three", "live": "https://example.com" }
+    },
+    {
+      "id": "project-four",
+      "order": 4,
+      "title": "[PROJECT FOUR]",
+      "year": 2024,
+      "type": "web app",
+      "featured": false,
+      "summary": "[one sentence: what it does and who it's for]",
+      "stack": ["[stack one]", "[stack two]"],
+      "cover": "",
+      "images": [
+        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+      ],
+      "overview": { "problem": "[the problem]", "built": "[what I built]" },
+      "role": { "summary": "[my role]", "bullets": ["[bullet]"] },
+      "results": ["[result with a number]"],
+      "links": { "source": "https://github.com/USERNAME/project-four" }
+    },
+    {
+      "id": "project-five",
+      "order": 5,
+      "title": "[PROJECT FIVE]",
+      "year": 2024,
+      "type": "data / ml",
+      "featured": false,
+      "summary": "[one sentence: what it does and who it's for]",
+      "stack": ["[stack one]", "[stack two]", "[stack three]"],
+      "cover": "",
+      "images": [
+        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+      ],
+      "overview": { "problem": "[the problem]", "built": "[what I built]" },
+      "role": { "summary": "[my role]", "bullets": ["[bullet]"] },
+      "results": ["[result with a number]"],
+      "links": { "source": "https://github.com/USERNAME/project-five", "live": "https://example.com" }
+    },
+    {
+      "id": "project-six",
+      "order": 6,
+      "title": "[PROJECT SIX]",
+      "year": 2023,
+      "type": "game",
+      "featured": false,
+      "summary": "[one sentence: what it does and who it's for]",
+      "stack": ["[stack one]", "[stack two]"],
+      "cover": "",
+      "images": [
+        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+      ],
+      "overview": { "problem": "[the problem]", "built": "[what I built]" },
+      "role": { "summary": "[my role]", "bullets": ["[bullet]"] },
+      "results": ["[result with a number]"],
+      "links": { "source": "https://github.com/USERNAME/project-six" }
+    },
+    {
+      "id": "project-seven",
+      "order": 7,
+      "title": "[PROJECT SEVEN]",
+      "year": 2023,
+      "type": "web app",
+      "featured": false,
+      "summary": "[one sentence: what it does and who it's for]",
+      "stack": ["[stack one]"],
+      "cover": "",
+      "images": [
+        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+      ],
+      "overview": { "problem": "[the problem]", "built": "[what I built]" },
+      "role": { "summary": "[my role]", "bullets": ["[bullet]"] },
+      "results": ["[result with a number]"],
+      "links": { "source": "https://github.com/USERNAME/project-seven" }
+    }
+  ],
+  "experience": [
+    {
+      "id": "role-one",
+      "role": "[ROLE TITLE ONE]",
+      "company": "[COMPANY ONE]",
+      "location": "[CITY / Remote]",
+      "type": "internship",
+      "start": "2025-06",
+      "end": null,
+      "bullets": ["[impact bullet]", "[impact bullet]", "[impact bullet]"],
+      "skills": ["[skill]", "[skill]", "[skill]"]
+    },
+    {
+      "id": "role-two",
+      "role": "[ROLE TITLE TWO]",
+      "company": "[COMPANY TWO]",
+      "location": "[CITY / Remote]",
+      "type": "internship",
+      "start": "2024-06",
+      "end": "2024-08",
+      "bullets": ["[impact bullet]", "[impact bullet]"],
+      "skills": ["[skill]", "[skill]"]
+    },
+    {
+      "id": "role-three",
+      "role": "[ROLE TITLE THREE]",
+      "company": "[COMPANY THREE]",
+      "location": "[CITY / Remote]",
+      "type": "part-time",
+      "start": "2023-09",
+      "end": "2024-05",
+      "bullets": ["[impact bullet]"],
+      "skills": ["[skill]", "[skill]"]
+    }
+  ],
+  "education": [
+    {
+      "id": "school-one",
+      "school": "[SCHOOL NAME]",
+      "short": "[SCHOOL]",
+      "location": "[CITY]",
+      "degree": "[DEGREE]",
+      "major": "[MAJOR]",
+      "minor": "[MINOR]",
+      "gpa": "[X.XX]",
+      "start": "2022-09",
+      "end": "2026-05",
+      "honors": ["[honor]"],
+      "crest": "",
+      "coursework": [
+        { "code": "[CS 101]", "name": "[COURSE ONE]", "term": "[Fall 2022]", "note": "" },
+        { "code": "[CS 201]", "name": "[COURSE TWO]", "term": "[Spring 2023]", "note": "" },
+        { "code": "[CS 301]", "name": "[COURSE THREE]", "term": "[Fall 2023]", "note": "" },
+        { "code": "[CS 350]", "name": "[COURSE FOUR]", "term": "[Spring 2024]", "note": "" },
+        { "code": "[CS 401]", "name": "[COURSE FIVE]", "term": "[Fall 2024]", "note": "" },
+        { "code": "[CS 420]", "name": "[COURSE SIX]", "term": "[Spring 2025]", "note": "" }
+      ],
+      "awards": [
+        { "id": "award-one", "kind": "award", "title": "[AWARD ONE]", "issuer": "[ISSUER]", "date": "2025-04", "description": "", "href": "" },
+        { "id": "award-two", "kind": "cert", "title": "[CERT ONE]", "issuer": "[ISSUER]", "date": "2024-11", "description": "", "href": "" },
+        { "id": "award-three", "kind": "hackathon", "title": "[HACKATHON ONE]", "issuer": "[ISSUER]", "date": "2024-03", "description": "", "href": "" },
+        { "id": "award-four", "kind": "award", "title": "[AWARD TWO]", "issuer": "[ISSUER]", "date": "2023-05", "description": "", "href": "" }
+      ],
+      "clubs": [
+        { "name": "[CLUB ONE]", "role": "[ROLE]", "years": "[2023–2025]" },
+        { "name": "[CLUB TWO]", "role": "[ROLE]", "years": "[2022–2024]" }
+      ]
+    }
+  ],
+  "skills": [
+    { "group": "Languages", "items": ["[skill]", "[skill]", "[skill]"] },
+    { "group": "Tools", "items": ["[skill]", "[skill]", "[skill]"] },
+    { "group": "Frameworks", "items": ["[skill]", "[skill]"] }
+  ]
+}

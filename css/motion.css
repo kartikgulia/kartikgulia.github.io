@@ -1,0 +1,128 @@
+/* Transitions, pulse, press, boot, reduced-motion overrides — SPEC §9 */
+
+/* ---------- Screen transitions ---------- */
+
+.screen__body.leaving-forward { animation: screen-out-fwd var(--d-screen-out) var(--ease-out) forwards; }
+.screen__body.entering-forward { animation: screen-in-fwd var(--d-screen-in) var(--ease-out) forwards; }
+.screen__body.leaving-back { animation: screen-out-back var(--d-screen-out) var(--ease-out) forwards; }
+.screen__body.entering-back { animation: screen-in-back var(--d-screen-in) var(--ease-out) forwards; }
+.screen__body.leaving-fade { animation: fade-out var(--d-screen-out) var(--ease-out) forwards; }
+.screen__body.entering-fade { animation: fade-in var(--d-screen-in) var(--ease-out) forwards; }
+
+.screen--touch .screen__body.entering-forward,
+.screen--touch .screen__body.entering-back,
+.screen--touch .screen__body.entering-fade {
+  animation-delay: var(--d-stagger);
+  animation-fill-mode: both;
+}
+
+@keyframes screen-out-fwd { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(-16px); } }
+@keyframes screen-in-fwd { from { opacity: 0; transform: translateX(16px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes screen-out-back { from { opacity: 1; transform: translateX(0); } to { opacity: 0; transform: translateX(16px); } }
+@keyframes screen-in-back { from { opacity: 0; transform: translateX(-16px); } to { opacity: 1; transform: translateX(0); } }
+@keyframes fade-out { from { opacity: 1; } to { opacity: 0; } }
+@keyframes fade-in { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- Highlight ring ---------- */
+
+.is-highlighted { animation: ring-in var(--d-cursor) var(--ease-out); }
+@keyframes ring-in { from { transform: scale(.96); } to { transform: scale(1); } }
+.tile.is-highlighted, .cart.is-highlighted { animation: ring-in-tile var(--d-cursor) var(--ease-out); }
+@keyframes ring-in-tile { from { transform: scale(.96) translateY(-1px); } to { transform: scale(1) translateY(-1px); } }
+
+/* ---------- Panel crossfade (tab switch / gallery change / detail swap) ---------- */
+
+.panel-fade { animation: fade-cross 100ms linear; }
+@keyframes fade-cross { from { opacity: 0; } to { opacity: 1; } }
+
+/* ---------- D-pad edge bump ---------- */
+
+.bump-up { animation: bump-up 90ms var(--ease-out); }
+.bump-down { animation: bump-down 90ms var(--ease-out); }
+.bump-left { animation: bump-left 90ms var(--ease-out); }
+.bump-right { animation: bump-right 90ms var(--ease-out); }
+@keyframes bump-up { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-2px); } }
+@keyframes bump-down { 0%,100% { transform: translateY(0); } 50% { transform: translateY(2px); } }
+@keyframes bump-left { 0%,100% { transform: translateX(0); } 50% { transform: translateX(-2px); } }
+@keyframes bump-right { 0%,100% { transform: translateX(0); } 50% { transform: translateX(2px); } }
+
+/* ---------- Boot sequence ---------- */
+
+.boot-screen {
+  position: absolute;
+  inset: 0;
+  z-index: 30;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--s-3);
+  background: var(--screen-bg);
+}
+.boot-screen--off { background: var(--bezel); }
+.boot-flicker { animation: boot-flicker 200ms steps(4, end) forwards; }
+@keyframes boot-flicker { 0% { opacity: 0; background: var(--screen-bg); } 25% { opacity: .6; } 50% { opacity: .2; } 100% { opacity: 1; } }
+
+.boot-hide-body .screen__body,
+.boot-hide-body .status { visibility: hidden; }
+
+.boot-brand {
+  font-family: var(--font-system);
+  font-size: var(--t-label-size);
+  color: var(--text);
+}
+
+.boot-portrait-draw {
+  animation: boot-portrait-draw 800ms steps(20, end) forwards;
+}
+@keyframes boot-portrait-draw {
+  from { clip-path: inset(0 0 100% 0); }
+  to { clip-path: inset(0 0 0% 0); }
+}
+
+.boot-fade-in { animation: fade-in 300ms var(--ease-out) forwards; }
+
+.boot-loader span {
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 2px;
+  border-radius: 50%;
+  background: var(--text-muted);
+  animation: boot-loader-dot 900ms infinite ease-in-out;
+}
+.boot-loader span:nth-child(2) { animation-delay: 150ms; }
+.boot-loader span:nth-child(3) { animation-delay: 300ms; }
+@keyframes boot-loader-dot { 0%, 80%, 100% { opacity: .25; } 40% { opacity: 1; } }
+
+.boot-tile-in {
+  animation: tile-in 200ms var(--ease-out) both;
+}
+@keyframes tile-in { from { opacity: 0; transform: scale(.96); } to { opacity: 1; transform: scale(1); } }
+
+/* ---------- Reduced motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  .screen__body.leaving-forward,
+  .screen__body.leaving-back { animation: fade-out 80ms linear forwards; }
+  .screen__body.entering-forward,
+  .screen__body.entering-back,
+  .screen__body.entering-fade,
+  .screen__body.leaving-fade { animation: fade-in 80ms linear forwards; animation-delay: 0ms; }
+
+  .is-highlighted,
+  .tile.is-highlighted,
+  .cart.is-highlighted { animation: none; }
+
+  .fbtn.is-pulse {
+    animation: none;
+    border-color: var(--btn-glow);
+    color: var(--btn-glow);
+  }
+
+  .bump-up, .bump-down, .bump-left, .bump-right { animation: none; }
+
+  .boot-flicker, .boot-fade-in, .boot-loader span, .boot-tile-in { animation: none; }
+
+  video { animation-play-state: paused; }
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en" data-screens="light" data-layout="device">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>portfolio</title>
+<meta name="description" content="An interactive handheld-console portfolio.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="portfolio">
+<meta property="og:description" content="An interactive handheld-console portfolio.">
+<meta property="og:image" content="assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="portfolio">
+<meta name="twitter:description" content="An interactive handheld-console portfolio.">
+<meta name="twitter:image" content="assets/og.png">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&family=DotGothic16&family=IBM+Plex+Mono&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/device.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/motion.css">
+</head>
+<body>
+
+<div aria-live="polite" class="sr-only" id="live-region"></div>
+
+<div class="device-stage" id="device-stage">
+  <main class="device" id="device" aria-label="Handheld portfolio console">
+
+    <div class="device__top">
+      <div class="speaker" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+
+      <section class="screen screen--top" id="screen-top" aria-label="Top screen">
+        <div class="status" id="status-top">
+          <span class="status__left" id="status-top-left"></span>
+          <span class="status__right" id="status-top-right"></span>
+        </div>
+        <div class="screen__body" id="top-body"></div>
+      </section>
+
+      <div class="speaker" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+      </div>
+    </div>
+
+    <div class="hinge" aria-hidden="true"></div>
+
+    <div class="device__bottom">
+      <nav class="dpad" id="dpad" aria-label="D-pad">
+        <button type="button" class="dpad__up" data-dpad="up" aria-label="Move up">
+          <svg viewBox="0 0 12 12" width="13" height="13" aria-hidden="true"><path d="M6 2l4 5H2z" fill="#fff"/></svg>
+        </button>
+        <button type="button" class="dpad__left" data-dpad="left" aria-label="Move left">
+          <svg viewBox="0 0 12 12" width="13" height="13" aria-hidden="true"><path d="M2 6l5-4v8z" fill="#fff"/></svg>
+        </button>
+        <div class="dpad__center" aria-hidden="true"></div>
+        <button type="button" class="dpad__right" data-dpad="right" aria-label="Move right">
+          <svg viewBox="0 0 12 12" width="13" height="13" aria-hidden="true"><path d="M10 6l-5 4V2z" fill="#fff"/></svg>
+        </button>
+        <button type="button" class="dpad__down" data-dpad="down" aria-label="Move down">
+          <svg viewBox="0 0 12 12" width="13" height="13" aria-hidden="true"><path d="M6 10l-4-5h8z" fill="#fff"/></svg>
+        </button>
+      </nav>
+
+      <section class="screen screen--touch" id="screen-touch" aria-label="Touch screen">
+        <div class="screen__body" id="touch-body"></div>
+        <div class="hint" id="hint">
+          <span class="hint__left" id="hint-left"></span>
+          <span class="hint__right" id="hint-right"></span>
+        </div>
+        <div class="toast" id="toast" hidden></div>
+        <div class="overlay" id="overlay-root" hidden></div>
+      </section>
+
+      <div class="pills" id="pills">
+        <button type="button" class="pill" id="pill-home" data-pill="home" aria-label="Home">⌂ HOME</button>
+        <button type="button" class="pill" id="pill-theme" data-pill="theme" aria-pressed="false" aria-label="Toggle dark screens">☾ THEME</button>
+        <button type="button" class="pill" id="pill-sound" data-pill="sound" aria-pressed="false" aria-label="Toggle sound">♪ SOUND</button>
+      </div>
+
+      <div class="fbtns" id="fbtns" aria-label="Face buttons">
+        <button type="button" class="fbtn" data-btn="x" aria-label="X: home">X</button>
+        <button type="button" class="fbtn" data-btn="y" aria-label="Y: no action">Y</button>
+        <button type="button" class="fbtn" data-btn="a" aria-label="A: open">A</button>
+        <button type="button" class="fbtn" data-btn="b" aria-label="B: back">B</button>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<div class="sr-only" id="crawl-summary"></div>
+
+<noscript>
+  <div class="noscript">
+    <h1>[YOUR NAME]</h1>
+    <p>[one line: what you build]</p>
+    <ul>
+      <li><a href="mailto:you@example.com">Email: you@example.com</a></li>
+      <li><a href="https://github.com/USERNAME">GitHub: @USERNAME</a></li>
+      <li><a href="https://www.linkedin.com/in/USERNAME">LinkedIn: in/USERNAME</a></li>
+    </ul>
+    <p><a href="assets/resume.pdf">Download resume (PDF)</a></p>
+    <p>This site works best with JavaScript enabled.</p>
+  </div>
+</noscript>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

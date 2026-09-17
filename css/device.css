@@ -1,0 +1,371 @@
+/* Shell, screens, buttons, d-pad, pills, scaling, mobile layout — SPEC §4 */
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--page-bg);
+}
+
+.device-stage {
+  width: 100vw;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+/* ---------- Desktop / tablet device (natural 780×762) ---------- */
+
+.device {
+  position: relative;
+  width: 780px;
+  height: 762px;
+  flex: none;
+  transform: scale(var(--device-scale, 1));
+  transform-origin: center center;
+  display: flex;
+  flex-direction: column;
+  user-select: none;
+}
+
+.device__top {
+  width: 780px;
+  height: 360px;
+  background: var(--shell);
+  border: 1px solid var(--shell-edge);
+  border-radius: var(--r-shell-outer) var(--r-shell-outer) var(--r-shell-hinge) var(--r-shell-hinge);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+  box-sizing: border-box;
+}
+
+.hinge {
+  width: 700px;
+  height: 22px;
+  background: var(--shell-shade);
+  border-radius: 0 0 8px 8px;
+  align-self: center;
+}
+
+.device__bottom {
+  width: 780px;
+  height: 380px;
+  background: var(--shell);
+  border: 1px solid var(--shell-edge);
+  border-radius: var(--r-shell-hinge) var(--r-shell-hinge) var(--r-shell-outer) var(--r-shell-outer);
+  display: grid;
+  grid-template-columns: 114px 420px 138px;
+  grid-template-rows: 300px auto;
+  grid-template-areas:
+    "dpad screen fbtns"
+    ".    pills  .";
+  justify-content: space-between;
+  align-content: center;
+  padding: 0 36px;
+  box-sizing: border-box;
+}
+
+.dpad { grid-area: dpad; align-self: center; }
+.screen--touch { grid-area: screen; }
+.pills { grid-area: pills; justify-self: center; }
+.fbtns { grid-area: fbtns; align-self: center; }
+
+.speaker {
+  flex: none;
+  width: 21px;
+  display: grid;
+  grid-template-columns: repeat(3, 5px);
+  grid-auto-rows: 5px;
+  gap: 6px;
+}
+.speaker span {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, .3);
+}
+
+/* ---------- Screens ---------- */
+
+.screen {
+  border: 10px solid var(--bezel);
+  border-radius: var(--r-screen);
+  background: var(--screen-bg);
+  background-image: var(--grid-bg-image);
+  background-size: var(--grid-bg-size);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  box-sizing: border-box;
+}
+
+.screen--top {
+  width: 520px;
+  height: 300px;
+  flex: none;
+}
+
+.screen--touch {
+  width: 420px;
+  height: 300px;
+  flex: none;
+}
+
+.status {
+  flex: none;
+  height: 26px;
+  background: var(--surface);
+  border-bottom: 1px solid var(--divider);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--s-4);
+  font-family: var(--font-system);
+  font-size: var(--t-status-size);
+  line-height: var(--t-status-lh);
+  color: var(--text);
+}
+
+.screen__body {
+  flex: 1 1 auto;
+  min-height: 0;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.hint {
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--s-5) var(--s-3);
+  font-family: var(--font-system);
+  font-size: var(--t-label-size);
+  line-height: var(--t-label-lh);
+  color: var(--text-muted);
+}
+
+.pills {
+  margin-top: 10px;
+  display: flex;
+  gap: var(--s-3);
+  justify-content: center;
+}
+
+.pill {
+  background: var(--shell-shade);
+  color: var(--bezel);
+  font-family: var(--font-body);
+  font-size: var(--t-pill-size);
+  font-weight: var(--t-pill-weight);
+  letter-spacing: var(--t-pill-spacing);
+  border-radius: var(--r-chip);
+  padding: 6px 10px;
+  transition: transform var(--d-press) var(--ease-out);
+}
+.pill.is-pressed { transform: translateY(2px); }
+.pill[aria-pressed="true"] { background: var(--accent); color: var(--accent-ink); }
+
+/* ---------- D-pad ---------- */
+
+.dpad {
+  flex: none;
+  width: 114px;
+  height: 114px;
+  display: grid;
+  grid-template-columns: repeat(3, 38px);
+  grid-template-rows: repeat(3, 38px);
+  background: var(--dpad);
+  border-radius: var(--r-dpad);
+}
+.dpad__up { grid-column: 2; grid-row: 1; }
+.dpad__left { grid-column: 1; grid-row: 2; }
+.dpad__center { grid-column: 2; grid-row: 2; background: var(--dpad); }
+.dpad__right { grid-column: 3; grid-row: 2; }
+.dpad__down { grid-column: 2; grid-row: 3; }
+
+.dpad button {
+  background: var(--dpad);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.dpad__up { border-radius: var(--r-dpad) var(--r-dpad) 0 0; }
+.dpad__down { border-radius: 0 0 var(--r-dpad) var(--r-dpad); }
+.dpad__left { border-radius: var(--r-dpad) 0 0 var(--r-dpad); }
+.dpad__right { border-radius: 0 var(--r-dpad) var(--r-dpad) 0; }
+
+.dpad button.is-pressed {
+  background: var(--dpad-pressed);
+  transform: translate(1px, 1px);
+}
+.dpad__up.is-pressed { transform: translateY(1px); }
+.dpad__down.is-pressed { transform: translateY(1px); }
+.dpad__left.is-pressed { transform: translateX(1px); }
+.dpad__right.is-pressed { transform: translateX(1px); }
+
+/* ---------- Face buttons ---------- */
+
+.fbtns {
+  flex: none;
+  width: 138px;
+  height: 138px;
+  display: grid;
+  grid-template-columns: repeat(3, 46px);
+  grid-template-rows: repeat(3, 46px);
+  justify-items: center;
+  align-items: center;
+}
+
+.fbtn {
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  background: var(--btn-face);
+  border: 2px solid var(--btn-edge);
+  color: var(--bezel);
+  font-size: var(--t-button-size);
+  font-weight: var(--t-button-weight);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  transition: transform var(--d-press) var(--ease-out);
+}
+
+.fbtn[data-btn="x"] { grid-column: 2; grid-row: 1; }
+.fbtn[data-btn="y"] { grid-column: 1; grid-row: 2; }
+.fbtn[data-btn="a"] { grid-column: 3; grid-row: 2; }
+.fbtn[data-btn="b"] { grid-column: 2; grid-row: 3; }
+
+.fbtn.is-dim { opacity: .45; }
+.fbtn.is-lit { border-color: var(--btn-glow); color: var(--btn-glow); }
+.fbtn.is-pressed {
+  transform: translateY(2px);
+  box-shadow: inset 0 2px 0 rgba(0, 0, 0, .2);
+}
+.fbtn.is-pulse { animation: fbtn-pulse var(--d-glow) infinite; }
+
+@keyframes fbtn-pulse {
+  0% { box-shadow: 0 0 0 0 var(--btn-glow-halo); }
+  50% { box-shadow: 0 0 0 6px var(--btn-glow-halo); }
+  100% { box-shadow: 0 0 0 0 transparent; }
+}
+
+/* ---------- Mobile layout (§4.3) ---------- */
+
+html[data-layout="mobile"] .device-stage {
+  align-items: stretch;
+  justify-content: stretch;
+}
+
+html[data-layout="mobile"] .device {
+  width: 100dvw;
+  height: 100dvh;
+  min-height: 100%;
+  transform: none;
+  padding: 12px;
+  background: var(--shell);
+  border-radius: 24px;
+  box-sizing: border-box;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+html[data-layout="mobile"] .device__top,
+html[data-layout="mobile"] .device__bottom {
+  width: 100%;
+  height: auto;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+}
+
+html[data-layout="mobile"] .device__top {
+  flex: none;
+}
+
+html[data-layout="mobile"] .speaker { display: none; }
+
+html[data-layout="mobile"] .screen--top {
+  width: 100%;
+  height: clamp(200px, 32dvh, 280px);
+  border-width: 6px;
+}
+
+html[data-layout="mobile"] .hinge {
+  width: 100%;
+  height: 8px;
+}
+
+html[data-layout="mobile"] .device__bottom {
+  flex: 1 1 auto;
+  min-height: 0;
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-rows: 1fr 132px;
+  grid-template-areas:
+    "screen screen screen"
+    "dpad   pills   fbtns";
+  justify-content: stretch;
+  align-content: stretch;
+  column-gap: var(--s-3);
+}
+
+html[data-layout="mobile"] .screen--touch {
+  width: 100%;
+  height: auto;
+  min-height: 300px;
+  border-width: 6px;
+}
+
+html[data-layout="mobile"] .dpad,
+html[data-layout="mobile"] .pills,
+html[data-layout="mobile"] .fbtns {
+  align-self: center;
+}
+
+html[data-layout="mobile"] .pills {
+  flex-direction: column;
+  margin-top: 0;
+  justify-content: center;
+  gap: var(--s-2);
+}
+html[data-layout="mobile"] .pill {
+  min-height: 44px;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+html[data-layout="mobile"] .dpad {
+  width: 120px;
+  height: 120px;
+  grid-template-columns: repeat(3, 40px);
+  grid-template-rows: repeat(3, 40px);
+}
+
+html[data-layout="mobile"] .fbtns {
+  width: 132px;
+  height: 132px;
+  grid-template-columns: repeat(3, 44px);
+  grid-template-rows: repeat(3, 44px);
+}
+
+html[data-layout="mobile"] .fbtn { width: 44px; height: 44px; }
+
+html[data-layout="mobile"].controls-sticky .dpad,
+html[data-layout="mobile"].controls-sticky .pills,
+html[data-layout="mobile"].controls-sticky .fbtns {
+  position: sticky;
+  bottom: 0;
+  background: var(--shell);
+  z-index: 5;
+}
