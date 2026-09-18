@@ -97,7 +97,7 @@ export default {
       </div>
       <div class="footer-row">
         <button type="button" class="btn-ghost${cursor === 'btn-skills' ? ' is-highlighted' : ''}" data-item="btn-skills" tabindex="${cursor === 'btn-skills' ? 0 : -1}">Skills ▸</button>
-        <button type="button" class="btn-primary${cursor === 'btn-pdf' ? ' is-highlighted' : ''}" data-item="btn-pdf" tabindex="${cursor === 'btn-pdf' ? 0 : -1}">↓ Save resume.pdf</button>
+        <button type="button" class="btn-primary${cursor === 'btn-pdf' ? ' is-highlighted' : ''}" data-item="btn-pdf" tabindex="${cursor === 'btn-pdf' ? 0 : -1}">↓ Save Kartik-Resume.pdf</button>
       </div>
     </div>`;
   },
@@ -119,7 +119,7 @@ export default {
   y(ctx) {
     const url = ctx.content && ctx.content.profile && ctx.content.profile.resumePdf;
     if (!url) return null;
-    return { label: 'resume.pdf', run: () => downloadPdf(ctx) };
+    return { label: 'Kartik-Resume', run: () => downloadPdf(ctx) };
   },
 
   hint: () => '▲▼ scroll',
