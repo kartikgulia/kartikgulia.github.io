@@ -211,7 +211,7 @@
       "major": "Computer Science, AI Specialization",
       "start": "2024-08",
       "end": "2026-05",
-      "crest": "assets/img/usc.png",
+      "crest": "assets/img/usc.jpeg",
       "coursework": [
         { "code": "CSCI 561", "name": "Foundations of Artificial Intelligence", "term": "Fall 2024", "note": "" },
         { "code": "CSCI 570", "name": "Analysis of Algorithms", "term": "Fall 2024", "note": "" },
@@ -234,12 +234,26 @@
       "end": "2024-06",
       "crest": "assets/img/ucr.png",
       "coursework": [
-        { "code": "[CS 101]", "name": "[COURSE ONE]", "term": "[Fall 2022]", "note": "" },
-        { "code": "[CS 201]", "name": "[COURSE TWO]", "term": "[Spring 2023]", "note": "" },
-        { "code": "[CS 301]", "name": "[COURSE THREE]", "term": "[Fall 2023]", "note": "" },
-        { "code": "[CS 350]", "name": "[COURSE FOUR]", "term": "[Spring 2024]", "note": "" },
-        { "code": "[CS 401]", "name": "[COURSE FIVE]", "term": "[Fall 2024]", "note": "" },
-        { "code": "[CS 420]", "name": "[COURSE SIX]", "term": "[Spring 2025]", "note": "" }
+        { "code": "CS 010A&B", "name": "Introduction to CS", "term": "[Fall 2022]", "note": "" },
+        { "code": "CS 010C&141", "name": "Data Structures and Algorithms", "term": "[Spring 2023]", "note": "" },
+        { "code": "PHYS 040A&B&C", "name": "General Physics", "term": "[Fall 2023]", "note": "" },
+        { "code": "CS 011 & CS 111", "name": "Discrete Structures", "term": "[Spring 2024]", "note": "" },
+        { "code": "CS 061", "name": "Machine Organization & Assembly Language Programming", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 100", "name": "Software Construction", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 120A", "name": "Logic Design", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 120B", "name": "Embedded Systems", "term": "[Fall 2024]", "note": "" },
+        { "code": "PHIL 124", "name": "Formal Logic", "term": "[Fall 2024]", "note": "" },
+        { "code": "STAT 155", "name": "Probability and Statistics", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 150", "name": "Automata and Formal Languages", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 153", "name": "Design of Operating Systems", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 131", "name": "Edge Computing", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 170", "name": "Artificial Intelligence", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 142", "name": "Algorithm Engineering", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 161", "name": "Design and Architecture of Computer Systems", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 179M", "name": "Project in CS: Artificial Intelligence", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 180", "name": "Software Engineering", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 152", "name": "Compiler Design", "term": "[Fall 2024]", "note": "" },
+        { "code": "CS 179J", "name": "Project in CS: Computer Architecture and Embedded Systems", "term": "[Spring 2025]", "note": "" }
       ]
     }
   ],
