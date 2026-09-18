@@ -87,6 +87,9 @@
 .row.is-highlighted { background: var(--accent-tint); }
 .row.is-highlighted .row__text { font-weight: 700; }
 .row.is-highlighted .row__dot { background: var(--accent); }
+.row.is-selected .row__dot { background: var(--accent); }
+.row.is-selected .row__text { font-weight: 700; }
+.row.is-selected:not(.is-highlighted) { border-color: var(--accent); }
 
 /* ---------- Chip ---------- */
 

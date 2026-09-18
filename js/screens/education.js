@@ -1,5 +1,7 @@
 import { html, raw, esc } from '../util.js';
 import { chip } from '../components.js';
+import { getState, setState } from '../state.js';
+import { render } from '../render.js';
 
 function schools(ctx) { return (ctx.content && ctx.content.education) || []; }
 
@@ -11,13 +13,30 @@ function schoolLabel(school) {
   return `${school.degree || ''}${school.degree && school.major ? ' · ' : ''}${school.major || ''}`;
 }
 
+// The top screen shows whichever school was last clicked/selected, not
+// whatever the cursor happens to be hovering — it stays put until another
+// school is chosen. Reuses the existing per-screen `tab` state bucket.
+function selectedSchoolId(ctx) {
+  const list = schools(ctx);
+  if (!list.length) return null;
+  const stored = ctx.state.tab.education;
+  if (stored && list.some((s) => `school-${s.id}` === stored)) return stored;
+  return `school-${list[0].id}`;
+}
+
+function selectSchool(id) {
+  const s = getState();
+  if (s.tab.education === id) return;
+  setState({ tab: { ...s.tab, education: id } });
+  render();
+}
+
 export default {
   key: () => 'education',
   title: () => 'Education',
 
   status(ctx) {
-    const list = schools(ctx);
-    const school = findSchool(ctx, ctx.cursor) || list[0];
+    const school = findSchool(ctx, selectedSchoolId(ctx));
     if (!school) return { left: 'Education', right: '' };
     const start = school.start ? school.start.slice(0, 4) : '';
     const end = school.end ? school.end.slice(0, 4) : 'Present';
@@ -25,8 +44,7 @@ export default {
   },
 
   renderTop(ctx) {
-    const list = schools(ctx);
-    const school = findSchool(ctx, ctx.cursor) || list[0];
+    const school = findSchool(ctx, selectedSchoolId(ctx));
     if (!school) return html`<div class="empty-card card">no education yet</div>`;
 
     const honors = school.honors || [];
@@ -57,6 +75,7 @@ export default {
     const list = schools(ctx);
     if (!list.length) return html`<div class="empty-card card">no education yet</div>`;
     const cursor = ctx.cursor;
+    const selected = selectedSchoolId(ctx);
 
     return html`<div class="touch-pad">
       <div class="library-header">
@@ -67,7 +86,8 @@ export default {
         ${raw(list.map((s) => {
           const id = `school-${s.id}`;
           const hi = id === cursor;
-          return `<button type="button" class="row${hi ? ' is-highlighted' : ''}" data-item="${id}" tabindex="${hi ? 0 : -1}">
+          const sel = id === selected;
+          return `<button type="button" class="row${hi ? ' is-highlighted' : ''}${sel ? ' is-selected' : ''}" data-item="${id}" tabindex="${hi ? 0 : -1}">
             <span class="row__date">${esc(s.start ? s.start.slice(0, 4) : '')}</span>
             <span class="row__dot" aria-hidden="true"></span>
             <span class="row__text">${esc(schoolLabel(s))} @ ${esc(s.short || s.school)}</span>
@@ -78,7 +98,7 @@ export default {
   },
 
   items(ctx) {
-    return schools(ctx).map((s, i) => ({ id: `school-${s.id}`, row: i, col: 0, action: null }));
+    return schools(ctx).map((s, i) => ({ id: `school-${s.id}`, row: i, col: 0, action: () => selectSchool(`school-${s.id}`) }));
   },
 
   defaultCursor(ctx) {
@@ -88,5 +108,5 @@ export default {
 
   y: () => null,
 
-  hint: () => '▲▼ scroll',
+  hint: () => '▲▼ scroll · Ⓐ view',
 };
