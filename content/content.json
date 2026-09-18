@@ -209,29 +209,18 @@
       "location": "Los Angeles, CA",
       "degree": "Masters",
       "major": "Computer Science, AI Specialization",
-      "minor": "[MINOR]",
-      "gpa": "[X.XX]",
       "start": "2024-08",
       "end": "2026-05",
-      "honors": ["[honor]"],
       "crest": "",
       "coursework": [
-        { "code": "[CS 101]", "name": "[COURSE ONE]", "term": "[Fall 2022]", "note": "" },
-        { "code": "[CS 201]", "name": "[COURSE TWO]", "term": "[Spring 2023]", "note": "" },
-        { "code": "[CS 301]", "name": "[COURSE THREE]", "term": "[Fall 2023]", "note": "" },
-        { "code": "[CS 350]", "name": "[COURSE FOUR]", "term": "[Spring 2024]", "note": "" },
-        { "code": "[CS 401]", "name": "[COURSE FIVE]", "term": "[Fall 2024]", "note": "" },
-        { "code": "[CS 420]", "name": "[COURSE SIX]", "term": "[Spring 2025]", "note": "" }
-      ],
-      "awards": [
-        { "id": "award-one", "kind": "award", "title": "[AWARD ONE]", "issuer": "[ISSUER]", "date": "2025-04", "description": "", "href": "" },
-        { "id": "award-two", "kind": "cert", "title": "[CERT ONE]", "issuer": "[ISSUER]", "date": "2024-11", "description": "", "href": "" },
-        { "id": "award-three", "kind": "hackathon", "title": "[HACKATHON ONE]", "issuer": "[ISSUER]", "date": "2024-03", "description": "", "href": "" },
-        { "id": "award-four", "kind": "award", "title": "[AWARD TWO]", "issuer": "[ISSUER]", "date": "2023-05", "description": "", "href": "" }
-      ],
-      "clubs": [
-        { "name": "[CLUB ONE]", "role": "[ROLE]", "years": "[2023–2025]" },
-        { "name": "[CLUB TWO]", "role": "[ROLE]", "years": "[2022–2024]" }
+        { "code": "CSCI 561", "name": "Foundations of Artificial Intelligence", "term": "Fall 2024", "note": "" },
+        { "code": "CSCI 570", "name": "Analysis of Algorithms", "term": "Fall 2024", "note": "" },
+        { "code": "CSCI 535", "name": "Multimodal Probabilistic Learning of Human Communication", "term": "Spring 2025", "note": "" },
+        { "code": "CSCI 567", "name": "Machine Learning", "term": "Spring 2025", "note": "" },
+        { "code": "CSCI 571", "name": "Web Technologies", "term": "Summer 2025", "note": "" },
+        { "code": "CSCI 544", "name": "Applied Natural Language Processing", "term": "Fall 2025", "note": "" },
+        { "code": "CSCI 445", "name": "Foundations of Robotics", "term": "Fall 2025", "note": "" },
+        { "code": "CSCI 566", "name": "Deep Learning and Its Applications", "term": "Spring 2026", "note": "" }
       ]
     },
     {
@@ -241,11 +230,8 @@
       "location": "Riverside, CA",
       "degree": "Bachelors",
       "major": "Computer Science",
-      "minor": "[MINOR]",
-      "gpa": "[X.XX]",
       "start": "2021-09",
       "end": "2024-06",
-      "honors": ["[honor]"],
       "crest": "",
       "coursework": [
         { "code": "[CS 101]", "name": "[COURSE ONE]", "term": "[Fall 2022]", "note": "" },
@@ -254,16 +240,6 @@
         { "code": "[CS 350]", "name": "[COURSE FOUR]", "term": "[Spring 2024]", "note": "" },
         { "code": "[CS 401]", "name": "[COURSE FIVE]", "term": "[Fall 2024]", "note": "" },
         { "code": "[CS 420]", "name": "[COURSE SIX]", "term": "[Spring 2025]", "note": "" }
-      ],
-      "awards": [
-        { "id": "award-one", "kind": "award", "title": "[AWARD ONE]", "issuer": "[ISSUER]", "date": "2025-04", "description": "", "href": "" },
-        { "id": "award-two", "kind": "cert", "title": "[CERT ONE]", "issuer": "[ISSUER]", "date": "2024-11", "description": "", "href": "" },
-        { "id": "award-three", "kind": "hackathon", "title": "[HACKATHON ONE]", "issuer": "[ISSUER]", "date": "2024-03", "description": "", "href": "" },
-        { "id": "award-four", "kind": "award", "title": "[AWARD TWO]", "issuer": "[ISSUER]", "date": "2023-05", "description": "", "href": "" }
-      ],
-      "clubs": [
-        { "name": "[CLUB ONE]", "role": "[ROLE]", "years": "[2023–2025]" },
-        { "name": "[CLUB TWO]", "role": "[ROLE]", "years": "[2022–2024]" }
       ]
     }
   ],
