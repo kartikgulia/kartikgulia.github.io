@@ -229,6 +229,9 @@
   padding: var(--s-5);
   z-index: 15;
 }
+.overlay[hidden] {
+  display: none;
+}
 .overlay__card {
   width: 100%;
   max-height: 100%;
