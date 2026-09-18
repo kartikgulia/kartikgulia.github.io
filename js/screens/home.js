@@ -43,7 +43,7 @@ export default {
     const profile = (ctx.content && ctx.content.profile) || {};
     const cols = ctx.layout === 'mobile' ? 40 : 46;
     const portraitText = renderPortrait(cols, ctx.state.settings.darkScreens);
-    const greeting = ctx.state.firstVisitThisSession ? 'hello, new visitor' : 'welcome back, visitor';
+    const greeting = ctx.state.firstVisitThisSession ? 'hello' : 'welcome back';
 
     return html`<div class="home-top">
       <div class="card home-portrait-card">
