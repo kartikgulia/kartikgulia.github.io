@@ -211,7 +211,7 @@
       "major": "Computer Science, AI Specialization",
       "start": "2024-08",
       "end": "2026-05",
-      "crest": "",
+      "crest": "assets/img/usc.png",
       "coursework": [
         { "code": "CSCI 561", "name": "Foundations of Artificial Intelligence", "term": "Fall 2024", "note": "" },
         { "code": "CSCI 570", "name": "Analysis of Algorithms", "term": "Fall 2024", "note": "" },
@@ -232,7 +232,7 @@
       "major": "Computer Science",
       "start": "2021-09",
       "end": "2024-06",
-      "crest": "",
+      "crest": "assets/img/ucr.png",
       "coursework": [
         { "code": "[CS 101]", "name": "[COURSE ONE]", "term": "[Fall 2022]", "note": "" },
         { "code": "[CS 201]", "name": "[COURSE TWO]", "term": "[Spring 2023]", "note": "" },
