@@ -434,6 +434,7 @@ html[data-layout='mobile'] .portrait { font-size: 6px; }
 
 .edu-school { padding: var(--s-5) var(--s-6); margin: var(--s-4) var(--s-5); display: flex; gap: var(--s-5); overflow-y: auto; }
 .edu-school__crest { flex: none; }
+.edu-school__crest img { width: 96px; height: 96px; border-radius: 50%; object-fit: cover; }
 .crest-fallback {
   width: 96px; height: 96px; border-radius: 50%;
   border: 2px dashed var(--border);
