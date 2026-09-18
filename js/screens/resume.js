@@ -119,7 +119,7 @@ export default {
   y(ctx) {
     const url = ctx.content && ctx.content.profile && ctx.content.profile.resumePdf;
     if (!url) return null;
-    return { label: 'Kartik-Resume', run: () => downloadPdf(ctx) };
+    return { label: 'Kartik-Resume.pdf', run: () => downloadPdf(ctx) };
   },
 
   hint: () => '▲▼ scroll',

@@ -175,33 +175,35 @@ function renderOverlayUI() {
     return { cursor: c };
   })();
 
-  if (overlay === 'settings') {
-    const s = getState().settings;
-    overlayRoot.innerHTML = html`<div class="overlay__card card">
-      <div class="overlay__title">Settings</div>
-      <div class="settings-row">
-        <button type="button" class="settings-toggle${cursor === 'set-dark' ? ' is-highlighted' : ''}" data-item="set-dark" tabindex="${cursor === 'set-dark' ? 0 : -1}" aria-pressed="${raw(s.darkScreens ? 'true' : 'false')}">
-          <span>Dark screens</span><span class="settings-toggle__state">${s.darkScreens ? 'ON' : 'OFF'}</span>
-        </button>
-        <button type="button" class="settings-toggle${cursor === 'set-sound' ? ' is-highlighted' : ''}" data-item="set-sound" tabindex="${cursor === 'set-sound' ? 0 : -1}" aria-pressed="${raw(s.sound ? 'true' : 'false')}">
-          <span>Sound</span><span class="settings-toggle__state">${s.sound ? 'ON' : 'OFF'}</span>
-        </button>
-      </div>
-      <div class="overlay__footer">Ⓑ close</div>
-    </div>`;
-  } else if (overlay === 'skills') {
-    const groups = (content && content.skills) || [];
-    overlayRoot.innerHTML = html`<div class="overlay__card card">
-      <div class="overlay__title">Skills</div>
-      <div class="skills-groups">
-        ${raw(groups.map((g) => html`<div class="skills-group">
-          <div class="skills-group__label">${g.group}</div>
-          <div class="chip-row">${raw((g.items || []).map((i) => `<span class="chip">${esc(i)}</span>`).join(''))}</div>
-        </div>`).join(''))}
-      </div>
-      <div class="overlay__footer">Ⓑ close</div>
-    </div>`;
-  }
+  withScrollPreserved(overlayRoot, () => {
+    if (overlay === 'settings') {
+      const s = getState().settings;
+      overlayRoot.innerHTML = html`<div class="overlay__card card">
+        <div class="overlay__title">Settings</div>
+        <div class="settings-row">
+          <button type="button" class="settings-toggle${cursor === 'set-dark' ? ' is-highlighted' : ''}" data-item="set-dark" tabindex="${cursor === 'set-dark' ? 0 : -1}" aria-pressed="${raw(s.darkScreens ? 'true' : 'false')}">
+            <span>Dark screens</span><span class="settings-toggle__state">${s.darkScreens ? 'ON' : 'OFF'}</span>
+          </button>
+          <button type="button" class="settings-toggle${cursor === 'set-sound' ? ' is-highlighted' : ''}" data-item="set-sound" tabindex="${cursor === 'set-sound' ? 0 : -1}" aria-pressed="${raw(s.sound ? 'true' : 'false')}">
+            <span>Sound</span><span class="settings-toggle__state">${s.sound ? 'ON' : 'OFF'}</span>
+          </button>
+        </div>
+        <div class="overlay__footer">Ⓑ close</div>
+      </div>`;
+    } else if (overlay === 'skills') {
+      const groups = (content && content.skills) || [];
+      overlayRoot.innerHTML = html`<div class="overlay__card card">
+        <div class="overlay__title">Skills</div>
+        <div class="skills-groups">
+          ${raw(groups.map((g) => html`<div class="skills-group">
+            <div class="skills-group__label">${g.group}</div>
+            <div class="chip-row">${raw((g.items || []).map((i) => `<span class="chip">${esc(i)}</span>`).join(''))}</div>
+          </div>`).join(''))}
+        </div>
+        <div class="overlay__footer">Ⓑ close</div>
+      </div>`;
+    }
+  });
 }
 
 // ---------- Button glow / dim ----------
@@ -261,24 +263,60 @@ function applyFocus(ctx) {
   const id = overlay ? getCursor(`overlay:${overlay}`) : ctx.cursor;
   if (!id) return;
   const el = document.querySelector(`[data-item="${CSS.escape(id)}"]`);
-  if (el && typeof el.focus === 'function') el.focus({ preventScroll: true });
+  if (el && typeof el.focus === 'function') {
+    el.focus({ preventScroll: true });
+    // Only keyboard/d-pad moves get pulled into view; a hover shouldn't fight
+    // scroll position the visitor set by hand (see withScrollPreserved below).
+    el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
+  }
+}
+
+// ---------- Scroll preservation across full re-renders ----------
+
+// Every render() replaces innerHTML wholesale, which would otherwise reset
+// any scrolled list/panel back to the top on every cursor move — including a
+// plain mouse hover. Snapshot known scrollable regions before the swap and
+// restore them after, so hovering an already-visible item doesn't yank the
+// view back up.
+const SCROLL_SELECTORS = ['.cart-grid', '.role-list', '.tab-panel', '.role-detail-card', '.school-list', '.overlay__card'];
+
+function withScrollPreserved(container, updateFn) {
+  const positions = SCROLL_SELECTORS.map((sel) => [sel, container.querySelector(sel)?.scrollTop]);
+  updateFn();
+  positions.forEach(([sel, top]) => {
+    if (top === undefined) return;
+    const el = container.querySelector(sel);
+    if (el) el.scrollTop = top;
+  });
 }
 
 // ---------- Main render ----------
 
 export function render() {
+  // Also guard the outer device wrapper: on the mobile layout it's the
+  // element that scrolls (short viewports), and a re-render elsewhere
+  // shouldn't be able to yank it back to the top either.
+  const device = document.getElementById('device');
+  const deviceScroll = device.scrollTop;
+
   const { screen, ctx } = getActiveScreenAndCtx();
 
   const statusInfo = screen.status ? screen.status(ctx) : { left: '', right: '' };
   statusLeft.textContent = statusInfo.left || '';
   statusRight.textContent = statusInfo.right || '';
 
-  topBody.innerHTML = screen.renderTop ? screen.renderTop(ctx) : '';
-  touchBody.innerHTML = screen.renderTouch ? screen.renderTouch(ctx) : '';
+  withScrollPreserved(topBody, () => { topBody.innerHTML = screen.renderTop ? screen.renderTop(ctx) : ''; });
+  withScrollPreserved(touchBody, () => { touchBody.innerHTML = screen.renderTouch ? screen.renderTouch(ctx) : ''; });
 
   renderOverlayUI();
   updateButtons(screen, ctx);
+  const wasKeyboardMove = focusNextRender;
   applyFocus(ctx);
+
+  // Keyboard/d-pad moves may have deliberately scrolled the device via
+  // scrollIntoView above; only claw back the pre-render position for
+  // everything else (hover, toggles, tab/overlay changes, etc).
+  if (!wasKeyboardMove) device.scrollTop = deviceScroll;
 
   document.title = screen.title ? `${(content && content.profile && content.profile.name) || 'Portfolio'} · ${screen.title(ctx)}` : 'portfolio';
 

@@ -429,8 +429,7 @@ html[data-layout='mobile'] .portrait { font-size: 6px; }
 
 /* ---------- Education ---------- */
 
-.edu-detail, .edu-school { padding: var(--s-5) var(--s-6); margin: var(--s-4) var(--s-5); display: flex; gap: var(--s-5); }
-.edu-detail { flex-direction: column; gap: var(--s-2); }
+.edu-school { padding: var(--s-5) var(--s-6); margin: var(--s-4) var(--s-5); display: flex; gap: var(--s-5); overflow-y: auto; }
 .edu-school__crest { flex: none; }
 .crest-fallback {
   width: 96px; height: 96px; border-radius: 50%;
@@ -439,17 +438,8 @@ html[data-layout='mobile'] .portrait { font-size: 6px; }
   font-weight: 700; color: var(--text-muted);
 }
 .edu-school__col { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
-.school-switch {
-  text-align: center;
-  padding: var(--s-2);
-  font-family: var(--font-system);
-  font-size: var(--t-label-size);
-  border-radius: var(--r-card);
-  border: 2px solid transparent;
-}
-.sticker-grid { display: flex; flex-wrap: wrap; gap: var(--s-4); padding: var(--s-3); }
-.edu-sticker-label { padding: 0 var(--s-3); }
-.club-list { display: flex; flex-direction: column; gap: var(--s-2); padding: var(--s-3); }
+.edu-coursework-label { margin-top: var(--s-2); }
+.school-list { display: flex; flex-direction: column; gap: var(--s-2); overflow-y: auto; flex: 1 1 auto; min-height: 0; }
 
 /* ---------- Contact ---------- */
 
