@@ -1,7 +1,7 @@
 // Fetch + validate content.json, date formatting, sorting — SPEC §10
 
 export async function loadContent(url = 'content/content.json') {
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: 'no-cache' });
   if (!res.ok) throw new Error(`content.json: HTTP ${res.status}`);
   const data = await res.json();
   validate(data);

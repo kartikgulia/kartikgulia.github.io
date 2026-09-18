@@ -1,18 +1,18 @@
 {
   "profile": {
-    "name": "[YOUR NAME]",
+    "name": "Kartik Gulia",
     "tagline": "[one line: what you build]",
-    "location": "[CITY]",
-    "status": { "open": true, "label": "open to [roles / internships]" },
-    "replyNote": "I usually reply within [N] days.",
+    "location": "Los Angeles",
+    "status": { "open": true, "label": "open to new opportunities" },
+    "replyNote": "I usually reply within 2 days.",
     "portrait": "assets/ascii-portrait.txt",
-    "resumePdf": "assets/resume.pdf",
-    "siteUrl": "https://USERNAME.github.io/"
+    "resumePdf": "assets/Kartik-Gulia-Resume.pdf",
+    "siteUrl": "https://kartikgulia.github.io/"
   },
   "links": [
-    { "id": "email", "label": "Email", "handle": "you@example.com", "href": "mailto:you@example.com", "icon": "mail", "copy": true, "value": "you@example.com" },
-    { "id": "github", "label": "GitHub", "handle": "@USERNAME", "href": "https://github.com/USERNAME", "icon": "code" },
-    { "id": "linkedin", "label": "LinkedIn", "handle": "in/USERNAME", "href": "https://www.linkedin.com/in/USERNAME", "icon": "person" }
+    { "id": "email", "label": "Email", "handle": "kgulia2003@gmail.com", "href": "mailto:kgulia2003@gmail.com", "icon": "mail", "copy": true, "value": "kgulia2003@gmail.com" },
+    { "id": "github", "label": "GitHub", "handle": "@kartikgulia", "href": "https://github.com/kartikgulia", "icon": "code" },
+    { "id": "linkedin", "label": "LinkedIn", "handle": "in/kartikgulia", "href": "https://www.linkedin.com/in/kartikgulia", "icon": "person" }
   ],
   "projects": [
     {
@@ -145,50 +145,106 @@
   "experience": [
     {
       "id": "role-one",
-      "role": "[ROLE TITLE ONE]",
-      "company": "[COMPANY ONE]",
-      "location": "[CITY / Remote]",
-      "type": "internship",
-      "start": "2025-06",
+      "role": "AI Solutions Engineer, Product Operations",
+      "company": "Disney Entertainment & ESPN Technology",
+      "location": "Glendale, CA",
+      "type": "full-time",
+      "start": "2024-06",
       "end": null,
-      "bullets": ["[impact bullet]", "[impact bullet]", "[impact bullet]"],
-      "skills": ["[skill]", "[skill]", "[skill]"]
+      "bullets": 
+      ["Created and led product roadmap for an AI automated annual support metrics analysis and reporting pipeline covering 100+ applications, cutting down the manual process that consumed 3 to 4 months of director level effort each year to under one week", 
+        "Designed and launched an AI Decommission Autofiller to production, automating data extraction from Jira, Confluence, and ServiceNow into a structured Airtable review workflow so non technical reviewers could validate and approve records with minimal engineering support, and building reconciliation checks that delivered 5 legacy decommissions with zero data loss.", 
+        "Own the full product lifecycle for 21 finance and accounting applications, from onboarding and hypercare through L2 support, health and lifecycle stage tracking, and end of life decommissioning, serving as the single point of contact between the clients and engineering to handle P1/2 issues, escalations, maintaining documentation, and reporting metrics.", 
+        "Drive AI tool enablement for 20+ engineers, analysts, and IT partners across 3 teams, running hands on sessions and building reusable n8n and Claude workflows that became the default for Confluence and ServiceNow reporting, with sustained weekly use six months post rollout.", 
+        "Partner with product managers, developers, and IT specialists to scope, design, and ship automations and system enhancements, translating business needs into technical requirements"],
+      "skills": ["Product Strategy & Roadmap", "AI/LLM Product Development", "Process Improvement"]
     },
     {
       "id": "role-two",
-      "role": "[ROLE TITLE TWO]",
-      "company": "[COMPANY TWO]",
-      "location": "[CITY / Remote]",
-      "type": "internship",
-      "start": "2024-06",
-      "end": "2024-08",
-      "bullets": ["[impact bullet]", "[impact bullet]"],
-      "skills": ["[skill]", "[skill]"]
+      "role": "AI Researcher",
+      "company": "Wang Bioinformatics Lab — UC Riverside CSE",
+      "location": "Riverside, CA",
+      "type": "research",
+      "start": "2023-11",
+      "end": "2025-01",
+      "bullets": ["Leveraged generative AI models to translate complex analyses of molecular physical and chemical properties into executable MassQL code, enhancing data interpretation efficiency by 70%", 
+        "Applied advanced prompt engineering and autonomous reasoning to improve ChatGPT assistant accuracy from 41% to 98.7%", 
+        "Conducted extensive testing across 100+ test scripts, using a data-driven approach to refine prompts and response processing, enhancing user interaction quality and model responsiveness", 
+        "Authored documentation and best-practice guides, on prompt engineering, API usage, and system integrations, that became the team's onboarding standard for new contributors"],
+      "skills": ["AI/LLM Product Development", "Requirements Gathering"]
     },
     {
       "id": "role-three",
-      "role": "[ROLE TITLE THREE]",
-      "company": "[COMPANY THREE]",
-      "location": "[CITY / Remote]",
-      "type": "part-time",
-      "start": "2023-09",
-      "end": "2024-05",
-      "bullets": ["[impact bullet]"],
-      "skills": ["[skill]", "[skill]"]
+      "role": "IT Project Management Intern, Digital Analytics",
+      "company": "Caterpillar",
+      "location": "Chicago, IL",
+      "type": "internship",
+      "start": "2023-06",
+      "end": "2024-09",
+      "bullets": ["Drove roadmap execution for customer onboarding, eCommerce, and SOS fluid analysis initiatives, coordinating internal and external stakeholders across 50+ working sessions and resolving blockers to keep delivery on schedule.", 
+        "Engaged 20+ stakeholders to pitch new product and software concepts, partnering with Project Managers to define implementation roadmaps", 
+        "Led a cross-functional team of 5 in the Cat Hackathon, shipping a revamped Cat Inspect application that improved inspection accuracy by 50%",
+        "Built a centralized Confluence dashboard giving stakeholders visibility into 20+ ongoing projects"],
+      "skills": ["Product Lifecycle", "Business Strategy", "Customer Relationship Management"]
+    },
+    {
+      "id": "role-four",
+      "role": "DevOps Intern, Monitoring & Control",
+      "company": "NBCUniversal",
+      "location": "Los Angeles, CA",
+      "type": "internship",
+      "start": "2022-06",
+      "end": "2022-09",
+      "bullets": ["Delivered an API program for SFPs (small form-factor pluggable), from concept to global rollout across 180 stations and 800+ devices", 
+        "Managed the Skypath cloud system and its cross-system API integrations, automating update and issue reporting for hundreds of device drivers", 
+        "Monitored and managed core AWS services (EC2, S3, Elemental, Lambda, IAM) supporting production operations"],
+      "skills": ["Agile & Waterfall Delivery", "AWS Lambda", "A/B Testing & Experimentation"]
     }
   ],
   "education": [
     {
       "id": "school-one",
-      "school": "[SCHOOL NAME]",
-      "short": "[SCHOOL]",
-      "location": "[CITY]",
-      "degree": "[DEGREE]",
-      "major": "[MAJOR]",
+      "school": "University of Southern California",
+      "short": "USC",
+      "location": "Los Angeles, CA",
+      "degree": "Masters",
+      "major": "Computer Science, AI Specialization",
       "minor": "[MINOR]",
       "gpa": "[X.XX]",
-      "start": "2022-09",
+      "start": "2024-08",
       "end": "2026-05",
+      "honors": ["[honor]"],
+      "crest": "",
+      "coursework": [
+        { "code": "[CS 101]", "name": "[COURSE ONE]", "term": "[Fall 2022]", "note": "" },
+        { "code": "[CS 201]", "name": "[COURSE TWO]", "term": "[Spring 2023]", "note": "" },
+        { "code": "[CS 301]", "name": "[COURSE THREE]", "term": "[Fall 2023]", "note": "" },
+        { "code": "[CS 350]", "name": "[COURSE FOUR]", "term": "[Spring 2024]", "note": "" },
+        { "code": "[CS 401]", "name": "[COURSE FIVE]", "term": "[Fall 2024]", "note": "" },
+        { "code": "[CS 420]", "name": "[COURSE SIX]", "term": "[Spring 2025]", "note": "" }
+      ],
+      "awards": [
+        { "id": "award-one", "kind": "award", "title": "[AWARD ONE]", "issuer": "[ISSUER]", "date": "2025-04", "description": "", "href": "" },
+        { "id": "award-two", "kind": "cert", "title": "[CERT ONE]", "issuer": "[ISSUER]", "date": "2024-11", "description": "", "href": "" },
+        { "id": "award-three", "kind": "hackathon", "title": "[HACKATHON ONE]", "issuer": "[ISSUER]", "date": "2024-03", "description": "", "href": "" },
+        { "id": "award-four", "kind": "award", "title": "[AWARD TWO]", "issuer": "[ISSUER]", "date": "2023-05", "description": "", "href": "" }
+      ],
+      "clubs": [
+        { "name": "[CLUB ONE]", "role": "[ROLE]", "years": "[2023–2025]" },
+        { "name": "[CLUB TWO]", "role": "[ROLE]", "years": "[2022–2024]" }
+      ]
+    },
+    {
+      "id": "school-two",
+      "school": "University of California, Riverside",
+      "short": "UCR",
+      "location": "Riverside, CA",
+      "degree": "Bachelors",
+      "major": "Computer Science",
+      "minor": "[MINOR]",
+      "gpa": "[X.XX]",
+      "start": "2021-09",
+      "end": "2024-06",
       "honors": ["[honor]"],
       "crest": "",
       "coursework": [
@@ -212,8 +268,9 @@
     }
   ],
   "skills": [
-    { "group": "Languages", "items": ["[skill]", "[skill]", "[skill]"] },
-    { "group": "Tools", "items": ["[skill]", "[skill]", "[skill]"] },
-    { "group": "Frameworks", "items": ["[skill]", "[skill]"] }
+    { "group": "Product & Delivery", "items": ["Roadmapping", "Requirements Gathering", " A/B Testing & Experimentation", "Agile", "Waterfall", "OKR Development & Tracking"] },
+    { "group": "Collaboration & Tools", "items": ["JIRA", "Confluence", "ServiceNow", "Airtable", "PowerBI", "Slack", "M365"] },
+    { "group": "AI & Engineering", "items": ["Python", "LLMs", "REST APIs", "n8n", "Amazon Q", "Postman", "C++", "Javascript"] },
+    { "group": "Cloud", "items": ["AWS (EC2, S3, Lambda, IAM)", "Azure", "Docker", "Kubernetes", "CI/CD", "Git/Github"] }
   ]
 }
