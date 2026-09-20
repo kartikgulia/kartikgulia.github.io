@@ -24,7 +24,7 @@
       "featured": true,
       "summary": "DeepPrep-AI: A Multimodal Interview Analysis Tool for Personalized Feedback",
       "stack": ["Frontend: HTML/CSS/JavaScript", "Backend: Python with Flask", "ML / Modeling: PyTorch, TensorFlow, MediaPipe, OpenCV, Librosa, EfficientNet-B0 pretrained on ImageNet using AdamW with dropout and weight decay", "LLM Feedback: Gemini Model", "Data: RecruitView from HuggingFace"],
-      "cover": "assets/img/projects/deepprep-arch.png",
+      "cover": "assets/img/projects/deepprep-ai.png",
       "images": [
         { "src": "assets/img/projects/deepprep-arch.png", "alt": "High-Level Architecture", "caption": "High-Level Architecture" }
       ],
@@ -41,7 +41,7 @@
       "featured": true,
       "summary": "Misinformation Detection System to classify content as accurate or inaccurate",
       "stack": ["Python with Pandas", "Baseline: TF-IDF (unigrams + bigrams) with logistic regression", "Transformer models: DeBERTa-v3 hybrid fine-tuned for sequence classification", "Training: Class-weighted cross-entropy for label imbalance, different learning rates for the encoder and the classification head, gradient clipping, dropout, data augmentation", "Data: LIAR & FakeNewsNet"],
-      "cover": "assets/img/projects/misinfo-arch.png",
+      "cover": "assets/img/projects/misinformation-detection.png",
       "images": [
         { "src": "assets/img/projects/misinfo-arch.png", "alt": "Model Architecture", "caption": "Model Architecture" }
       ],
@@ -52,19 +52,19 @@
     {
       "id": "project-three",
       "order": 3,
-      "title": "[PROJECT THREE]",
+      "title": "Lava Lamp Password (LLP)",
       "year": 2025,
-      "type": "cli tool",
+      "type": "Field-Programmable Gate Array (FPGA)",
       "featured": false,
-      "summary": "[one sentence: what it does and who it's for]",
-      "stack": ["[stack one]", "[stack two]", "[stack three]", "[stack four]", "[stack five]"],
-      "cover": "",
+      "summary": "Lava Lamp Password (LLP) utilizes the randomness of lava lamps to create a completely random and secure password that is displayed on a screen.",
+      "stack": ["Software: Python, OpenCV, NumPy", "Hardware: Pynq (FPGA) board, 1080p camera, LCD Display"],
+      "cover": "assets/img/projects/sparkles.png",
       "images": [
-        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+        { "src": "assets/img/projects/llp.png", "alt": "System Design", "caption": "System Design" }
       ],
-      "overview": { "problem": "[the problem]", "built": "[what I built]" },
-      "results": ["[result with a number]"],
-      "links": { "source": "https://github.com/USERNAME/project-three", "live": "https://example.com" }
+      "overview": { "problem": "Passwords in use are prone to being predictable. A GOOD password needs to be random and unrelated to anything personal/predictable.", "built": "LLP utilizes the randomness of lava lamps, a technique used by large industries such as Cloudflare, to periodically pass captured images through a key derivation algorithm that produces a secure 15-character key. Each frame is decoded into its RGB values, successive frames are differenced to produce transition frames, and those transition frames are differenced again, isolating the unpredictable motion of the lamps from the static background. Singular value decomposition is then applied to decorrelate the data and remove structural regularity, and reservoir sampling reduces it to a fixed-size sample, adding a second source of uncertainty. The sampled values are mapped to a 15-character key drawn from a–z, A–Z, 0–9 and !@#$%^&()+." },
+      "results": ["A completely random 15-character key drawn from a–z, A–Z, 0–9 and !@#$%^&()+."],
+      "links": { "source": "https://github.com/kartikgulia/Sparkles", "demo": "https://docs.google.com/presentation/d/1EIy8LIbipyi1lDbUQc2crH4B44QuDY-TR8yPyWPd7V0/edit?usp=sharing" }
     },
     {
       "id": "project-four",
