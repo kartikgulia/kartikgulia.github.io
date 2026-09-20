@@ -435,7 +435,7 @@ Sizes below are **desktop inner sizes** (top 500×254 below the status bar, touc
   - **My role:** paragraph + bullet list.
   - **Stack:** chips grouped by `stack` entries.
   - **Results:** bullet list (numbers encouraged).
-- Actions row: `◀ Back` (ghost, same as B) on the left, then `</> Source` (ghost) and `↗ Live` (primary) on the right, each only if the link exists.
+- Actions row: `◀ Back` (ghost, same as B) on the left, then `</> Source` (ghost), `▶ Demo` (ghost) and `↗ Live` (primary) on the right, each only if the link exists.
 - **Item grid** (rows):
   - row 0: `gallery` (it lives on the top screen, but moving ▲ from the tabs reaches it; the ring draws on the top-screen image frame)
   - row 1: `tab-overview`, `tab-role`, `tab-stack`, `tab-results`
@@ -445,7 +445,7 @@ Sizes below are **desktop inner sizes** (top 500×254 below the status bar, touc
 - Default cursor: `tab-overview`.
 - Hint: left `tab {n} / {tabs}`, right `Ⓨ live demo` (or `Ⓨ source` if no live link, or nothing).
 
-**Buttons:** X Home · B → Projects (cursor restored to this project) · **Y = open live link** (fallback: source).
+**Buttons:** X Home · B → Projects (cursor restored to this project) · **Y = open live link** (fallback: demo, then source).
 
 ### 8.4 Resume `#/resume`
 
@@ -611,7 +611,7 @@ All user-facing text comes from this file, except fixed UI labels (tab names, `L
       "overview": { "problem": "[the problem]", "built": "[what I built]" },
       "role": { "summary": "[my role]", "bullets": ["[bullet]"] },
       "results": ["[result with a number]"],
-      "links": { "source": "https://github.com/USERNAME/project-one", "live": "https://example.com" }
+      "links": { "source": "https://github.com/USERNAME/project-one", "live": "https://example.com", "demo": "https://example.com/demo.mp4" }
     }
   ],
   "experience": [
@@ -855,6 +855,7 @@ Contact form or any backend · Gamepad API · visitor shell-color picker · ASCI
 - Education's cursor/nav uses pure spatial (DOM-rect) navigation for its whole item list (no row/col assigned), rather than mixing grid-based and spatial nav on one screen — simpler than branching, and correct per §6.2's spatial-nav requirement for wrapping chips/stickers.
 - The `<noscript>` fallback (§12) is static placeholder markup written once at build time (same bracketed values as `content.json`), not filled by JS — `<noscript>` content is never part of the live DOM when scripting is enabled, so it can't be populated from `content.json` at runtime.
 - `assets/og.png` and `assets/resume.pdf` placeholders were generated with small one-off Node scripts (deleted after use, not part of the shipped repo) since no image/PDF tooling was otherwise available.
+- Project `links` gained an optional `demo` key (e.g. a demo video) alongside `source` and `live`, since some projects have one but not the other; Y prefers live, then demo, then source.
 - Total unminified JS is ~90KB against the §13 budget of 60KB. The feature set (routing, spatial nav, ASCII downsampler, synthesized audio, boot sequence, 7 screens) didn't compress under budget without cutting functionality or readability; flagging this as a known deviation rather than a silent miss.
 - `computeScale()` skips updating `data-layout`/`--device-scale` when the stage reports 0×0 (can happen transiently before first layout) instead of forcing mobile mode on bogus dimensions.
 - Tab order does not exactly follow §12's "touch-screen items → top-screen items → face buttons → d-pad → pills" sequence; it follows DOM order (top screen → d-pad → touch screen → pills → face buttons) instead. Getting the exact prescribed cross-region order would need positive `tabindex` values, which are more fragile than the roving `tabindex="-1"/"0"` pattern used within each region. Everything remains keyboard-reachable with a visible focus ring, just not in that exact order.

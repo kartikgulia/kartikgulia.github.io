@@ -131,6 +131,7 @@ export default {
       <div class="actions-row">
         <button type="button" class="btn-ghost${actHi('act-back') ? ' is-highlighted' : ''}" data-item="act-back" tabindex="${actHi('act-back') ? 0 : -1}">◀ Back</button>
         ${raw(p.links && p.links.source ? html`<button type="button" class="btn-ghost${actHi('act-source') ? ' is-highlighted' : ''}" data-item="act-source" tabindex="${actHi('act-source') ? 0 : -1}">&lt;/&gt; Source</button>` : '')}
+        ${raw(p.links && p.links.demo ? html`<button type="button" class="btn-ghost${actHi('act-demo') ? ' is-highlighted' : ''}" data-item="act-demo" tabindex="${actHi('act-demo') ? 0 : -1}">▶ Demo</button>` : '')}
         ${raw(p.links && p.links.live ? html`<button type="button" class="btn-primary${actHi('act-live') ? ' is-highlighted' : ''}" data-item="act-live" tabindex="${actHi('act-live') ? 0 : -1}">↗ Live</button>` : '')}
       </div>
     </div>`;
@@ -145,6 +146,7 @@ export default {
     let col = 0;
     list.push({ id: 'act-back', row: 2, col: col++, action: backToProjects });
     if (p.links && p.links.source) list.push({ id: 'act-source', row: 2, col: col++, action: () => window.open(p.links.source, '_blank', 'noopener,noreferrer') });
+    if (p.links && p.links.demo) list.push({ id: 'act-demo', row: 2, col: col++, action: () => window.open(p.links.demo, '_blank', 'noopener,noreferrer') });
     if (p.links && p.links.live) list.push({ id: 'act-live', row: 2, col: col++, action: () => window.open(p.links.live, '_blank', 'noopener,noreferrer') });
     return list;
   },
@@ -185,7 +187,8 @@ export default {
   y(ctx) {
     const p = findProject(ctx);
     if (!p || !p.links) return null;
-    if (p.links.live) return { label: 'live demo', run: () => window.open(p.links.live, '_blank', 'noopener,noreferrer') };
+    if (p.links.live) return { label: 'live site', run: () => window.open(p.links.live, '_blank', 'noopener,noreferrer') };
+    if (p.links.demo) return { label: 'demo', run: () => window.open(p.links.demo, '_blank', 'noopener,noreferrer') };
     if (p.links.source) return { label: 'source', run: () => window.open(p.links.source, '_blank', 'noopener,noreferrer') };
     return null;
   },
