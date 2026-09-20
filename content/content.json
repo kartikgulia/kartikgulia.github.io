@@ -24,7 +24,7 @@
       "featured": true,
       "summary": "DeepPrep-AI: A Multimodal Interview Analysis Tool for Personalized Feedback",
       "stack": ["Frontend: HTML/CSS/JavaScript", "Backend: Python with Flask", "ML / Modeling: PyTorch, TensorFlow, MediaPipe, OpenCV, Librosa, EfficientNet-B0 pretrained on ImageNet using AdamW with dropout and weight decay", "LLM Feedback: Gemini Model", "Data: RecruitView from HuggingFace"],
-      "cover": "",
+      "cover": "assets/img/projects/deepprep-arch.png",
       "images": [
         { "src": "assets/img/projects/deepprep-arch.png", "alt": "High-Level Architecture", "caption": "High-Level Architecture" }
       ],
@@ -35,19 +35,19 @@
     {
       "id": "project-two",
       "order": 2,
-      "title": "[PROJECT TWO]",
-      "year": 2025,
-      "type": "mobile app",
+      "title": "Misinformation Detection",
+      "year": 2026,
+      "type": "AI/ML",
       "featured": true,
-      "summary": "[one sentence: what it does and who it's for]",
-      "stack": ["[stack one]", "[stack two]"],
-      "cover": "",
+      "summary": "Misinformation Detection System to classify content as accurate or inaccurate",
+      "stack": ["Python with Pandas", "Baseline: TF-IDF (unigrams + bigrams) with logistic regression", "Transformer models: DeBERTa-v3 hybrid fine-tuned for sequence classification", "Training: Class-weighted cross-entropy for label imbalance, different learning rates for the encoder and the classification head, gradient clipping, dropout, data augmentation", "Data: LIAR & FakeNewsNet"],
+      "cover": "assets/img/projects/misinfo-arch.png",
       "images": [
-        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+        { "src": "assets/img/projects/misinfo-arch.png", "alt": "Model Architecture", "caption": "Model Architecture" }
       ],
-      "overview": { "problem": "[the problem]", "built": "[what I built]" },
-      "results": ["[result with a number]"],
-      "links": { "source": "https://github.com/USERNAME/project-two" }
+      "overview": { "problem": "Misinformation circulating on digital platforms has become a serious threat to public discourse, institutional trust, and informed decision making.", "built": "A system to detect misinformation in various forms of content using benchmark datasets that combine textual, contextual, and metadata features with a transformer based language model, DistilBERT." },
+      "results": ["Developed a data ingestion pipeline that loads the LIAR dataset (train/valid/test split) into a pandas dataframe. A baseline classifier was implemented using TF-IDF vectorization (unigrams and bigrams) with logistic regression on the statement text only. Went through multiple different model and landed on the hybrid DeBERTa v3 model achieved a highest 92.8% training accuracy, 75.6% validation accuracy, and 72.7% test accuracy."],
+      "links": { "source": "https://github.com/qxie44/csci544misinfo" }
     },
     {
       "id": "project-three",
