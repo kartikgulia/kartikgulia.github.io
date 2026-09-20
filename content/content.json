@@ -18,20 +18,19 @@
     {
       "id": "project-one",
       "order": 1,
-      "title": "[PROJECT ONE]",
+      "title": "DeepPrep-AI",
       "year": 2026,
-      "type": "web app",
+      "type": "AI/ML",
       "featured": true,
-      "summary": "[one sentence: what it does and who it's for]",
-      "stack": ["[stack one]", "[stack two]", "[stack three]"],
+      "summary": "DeepPrep-AI: A Multimodal Interview Analysis Tool for Personalized Feedback",
+      "stack": ["Frontend: HTML/CSS/JavaScript", "Backend: Python with Flask", "ML / Modeling: PyTorch, TensorFlow, MediaPipe, OpenCV, Librosa, EfficientNet-B0 pretrained on ImageNet using AdamW with dropout and weight decay", "LLM Feedback: Gemini Model", "Data: RecruitView from HuggingFace"],
       "cover": "",
       "images": [
-        { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
+        { "src": "assets/img/projects/deepprep-arch.png", "alt": "High-Level Architecture", "caption": "High-Level Architecture" }
       ],
-      "overview": { "problem": "[the problem]", "built": "[what I built]" },
-      "role": { "summary": "[my role]", "bullets": ["[bullet]", "[bullet]"] },
-      "results": ["[result with a number]", "[result with a number]"],
-      "links": { "source": "https://github.com/USERNAME/project-one", "live": "https://example.com" }
+      "overview": { "problem": "Interviews are high-stakes, yet most candidates receive little to no actionable feedback on their performance. When feedback is given, it is often subjective, inconsistent, or delayed, making it difficult to identify specific areas for improvement.", "built": "A system that can objectively evaluate interview behavior and generate meaningful, actionable feedback at scale." },
+      "results": ["DeepPrep-AI demonstrates a practical multimodal approach to interview analysis by combining posture, engagement, and audio signals into a unified feedback system. The project is motivated by a real gap in interview preparation: the lack of specific, consistent, and actionable feedback. Using RecruitView as the benchmark dataset, the system frames interview assessment as a continuous multimodal regression problem and uses specialized neural networks for each behavioral component. The current implementation already displays accurate engagement results with feedback generation and shows promising subsystem level improvements through targeted fine tuning."],
+      "links": { "source": "https://github.com/RayyanZaid/CSCI-566-Course-Project-DeepPrep-AI", "demo": "https://github.com/RayyanZaid/CSCI-566-Course-Project-DeepPrep-AI/blob/master/DeepPrep%20-%20Demo%20Video.mp4" }
     },
     {
       "id": "project-two",
@@ -47,7 +46,6 @@
         { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
       ],
       "overview": { "problem": "[the problem]", "built": "[what I built]" },
-      "role": { "summary": "[my role]", "bullets": ["[bullet]"] },
       "results": ["[result with a number]"],
       "links": { "source": "https://github.com/USERNAME/project-two" }
     },
@@ -65,7 +63,6 @@
         { "src": "", "alt": "[describe the screenshot]", "caption": "[caption]" }
       ],
       "overview": { "problem": "[the problem]", "built": "[what I built]" },
-      "role": { "summary": "[my role]", "bullets": ["[bullet]"] },
       "results": ["[result with a number]"],
       "links": { "source": "https://github.com/USERNAME/project-three", "live": "https://example.com" }
     },
